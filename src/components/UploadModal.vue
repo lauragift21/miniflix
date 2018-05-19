@@ -25,10 +25,14 @@
 <script>
 import { SweetModal, SweetModalTab } from 'sweet-modal-vue';
 export default {
-  components: {
-    SweetModal,
-    SweetModalTab
+  data() {
+    return {
+      banner: '',
+      trailer: '',
+      title: ''
+    };
   },
+  props: ['showModal'],
   watch: {
     showModal(val) {
       val ? this.$refs.modal.open() : this.$refs.modal.close();
@@ -36,7 +40,7 @@ export default {
   },
   methods: {
   startUpload(type) {
-    cloudinary.openUploadWidget(
+    window.cloudinary.openUploadWidget(
       { cloud_name: 'lauragift', upload_preset: 'o41yqsra' },
       (error, result) => {
         console.log(error, result[0]);
@@ -56,5 +60,9 @@ export default {
     this.$emit('handle-upload', data);
   }
 },
+components: {
+  SweetModal,
+  SweetModalTab
+}
 };
 </script>

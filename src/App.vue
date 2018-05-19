@@ -5,7 +5,14 @@
        <div class="navbar-brand">
          <a class="navbar-item" href="/">
            <img src="https://cloudinary-res.cloudinary.com/image/upload/v1521663307/MiniFlix-Logo_620x180.png" alt="Netflix" width="112" height="28">
-            <a class="button navbar-item">
+            </a>
+         <div class="navbar-menu">
+           <div class="navbar-end">
+             <!-- Upload button here -->
+             <a class="button navbar-item" @click="showModal =  !showModal">
+               Upload
+             </a>
+             <a class="button navbar-item">
               <social-sharing
                 title="Build a Mini Netflix from scratch"
                 url="https://cloudinary.gitbooks.io/build-a-mini-netflix-clone-with-vue/content" inline-template>
@@ -16,24 +23,17 @@
                 </div>
               </social-sharing>
             </a>
-            </a>
-         <div class="navbar-menu">
-           <div class="navbar-end">
-             <!-- Upload button here -->
-             <a class="button navbar-item" @click="showModal =  !showModal">
-               Upload
-             </a>
            </div>
          </div>
        </div>
      </div>
-    <UploadModal :showModal="showModal" @handle-upload="uploadToServer"></UploadModal>
+    <VideoPlayer :cloudinaryInstance="cloudinaryInstance" :movie="movie"></VideoPlayer>
    </nav>
-   <VideoPlayer :cloudinaryInstance="cloudinaryInstance" :movie="movie"></VideoPlayer>
    <div class="container">
      <h2 class="is-size-3">Movies</h2>
-     <VideoList movie="updatePlayer" :movies="movies"></VideoList>
+     <VideoList :cloudinaryInstance="cloudinaryInstance" @choose-movie="updatePlayer" :movies="movies"></VideoList>
     </div>
+    <UploadModal :showModal="showModal" @handle-upload="uploadToServer"></UploadModal>
   </div>
 </template>
 
@@ -43,19 +43,16 @@ import VideoPlayer from './components/VideoPlayer.vue';
 import VideoList from './components/VideoList.vue';
 import UploadModal from './components/UploadModal.vue';
 
+const miniflixService = 'https://wt-21c519517dbb5876f15c89ae433d97f3-0.run.webtask.io/server/movies';
+
 export default {
 	data() {
 		return {
 			movie: {},
       showModal: false,
-      url: 'https://wt-21c519517dbb5876f15c89ae433d97f3-0.run.webtask.io/server'
+      url: miniflixService
 		}
 	},
-  components: {
-    VideoPlayer,
-    VideoList,
-    UploadModal
-  },
 	created() {
 		this.cloudinaryInstance = window.cloudinary.Cloudinary.new({
 			cloud_name: 'lauragift',
@@ -76,6 +73,11 @@ export default {
         this.showModal = false;
       })
     }
+  },
+  components: {
+    VideoPlayer,
+    VideoList,
+    UploadModal
   },
 };
 </script>
