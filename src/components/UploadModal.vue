@@ -41,7 +41,7 @@ export default {
   methods: {
   startUpload(type) {
     window.cloudinary.openUploadWidget(
-      { cloud_name: 'lauragift', upload_preset: 'o41yqsra' },
+      { cloud_name: 'lauragift', upload_preset: 'a0qnqk2k' },
       (error, result) => {
         console.log(error, result[0]);
         type === 'banner'

@@ -1,41 +1,44 @@
 <template>
   <div id="app">
-     <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
-     <div class="container">
-       <div class="navbar-brand">
-         <a class="navbar-item" href="/">
-           <img src="https://cloudinary-res.cloudinary.com/image/upload/v1521663307/MiniFlix-Logo_620x180.png" alt="Netflix" width="112" height="28">
-            </a>
-         <div class="navbar-menu">
-           <div class="navbar-end">
-             <!-- Upload button here -->
-             <a class="button navbar-item" @click="showModal =  !showModal">
-               Upload
-             </a>
-             <a class="button navbar-item">
-              <social-sharing
-                title="Build a Mini Netflix from scratch"
-                url="https://cloudinary.gitbooks.io/build-a-mini-netflix-clone-with-vue/content" inline-template>
-                <div>
-                  <network network="twitter">
-                    Share
-                  </network>
-                </div>
-              </social-sharing>
-            </a>
-           </div>
-         </div>
-       </div>
-     </div>
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="/">
+            <img src="https://cloudinary-res.cloudinary.com/image/upload/v1521663307/MiniFlix-Logo_620x180.png" alt="Netflix" width="112" height="28">
+          </a>
+
+           <div class="navbar-menu">
+            <div class="navbar-end">
+              <a class="button navbar-item" @click="showModal = !showModal">
+                Upload
+              </a>
+              <a class="button navbar-item">
+                <social-sharing
+                  title="Build a Mini Netflix from scratch"
+                  url="https://cloudinary.gitbooks.io/build-a-mini-netflix-clone-with-vue/content" inline-template>
+                  <div>
+                    <network network="twitter">
+                      Share
+                    </network>
+                  </div>
+                </social-sharing>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
     <VideoPlayer :cloudinaryInstance="cloudinaryInstance" :movie="movie"></VideoPlayer>
-   </nav>
-   <div class="container">
-     <h2 class="is-size-3">Movies</h2>
-     <VideoList :cloudinaryInstance="cloudinaryInstance" @choose-movie="updatePlayer" :movies="movies"></VideoList>
+
+    <div class="container">
+      <h2 class="is-size-3">Movies</h2>
+      <VideoList :cloudinaryInstance="cloudinaryInstance" @choose-movie="updatePlayer" :movies="movies"></VideoList>
     </div>
     <UploadModal :showModal="showModal" @handle-upload="uploadToServer"></UploadModal>
   </div>
 </template>
+
 
 <script>
 import axios from 'axios';
@@ -49,6 +52,7 @@ export default {
 	data() {
 		return {
 			movie: {},
+      movies: [],
       showModal: false,
       url: miniflixService
 		}
