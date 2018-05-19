@@ -8,7 +8,7 @@
             class="cld-video-player trailer-bg__video">
         </video>
         <div class="trailer-content">
-            <h1 class="is-size-1  has-text-weight-bold">{{movie.title || 'Avengers'}}</h1>
+            <h1 class="is-size-1  has-text-weight-bold">{{movie.title || 'Black Panther'}}</h1>
         </div>
     </div>
 </template>
@@ -28,7 +28,7 @@ export default {
             }
     });
     this.player.source(
-    this.movie.trailer || 'Avengers'
+    this.movie.trailer || 'Waploaded.com_BLACK_PANTHER_Trailer_tk80ux'
     );
     // Mute on blur
     document.hidden && this.player.mute()
