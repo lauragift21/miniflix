@@ -14,8 +14,8 @@
               </a>
               <a class="button navbar-item">
                 <social-sharing
-                  title="Build a Mini Netflix from scratch"
-                  url="https://cloudinary.gitbooks.io/build-a-mini-netflix-clone-with-vue/content" inline-template>
+                  title="Checkout this cool Netflix Clone - Miniflix"
+                  url="https://miniflix.netlify.com" inline-template>
                   <div>
                     <network network="twitter">
                       Share
