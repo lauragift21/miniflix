@@ -24,8 +24,9 @@ export default {
             aspect_ratio: '16:9',
             x: 100,
             y: 100,
-            gravity: 'center'
-            }
+            gravity: 'center',
+            // overlay: 'l_MiniFlix',
+    }
     });
     this.player.source(
     this.movie.trailer || 'Waploaded.com_BLACK_PANTHER_Trailer_tk80ux'
@@ -41,10 +42,8 @@ export default {
         this.player.source(newMovie.trailer);
     }
     },
-
 }
 </script>
-
 
 <style>
 .trailer-bg {

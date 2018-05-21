@@ -32,10 +32,15 @@
     <VideoPlayer :cloudinaryInstance="cloudinaryInstance" :movie="movie"></VideoPlayer>
 
     <div class="container">
-      <h2 class="is-size-3">Movies</h2>
+      <h2 class="is-size-2">Movies</h2>
       <VideoList :cloudinaryInstance="cloudinaryInstance" @choose-movie="updatePlayer" :movies="movies"></VideoList>
     </div>
     <UploadModal :showModal="showModal" @handle-upload="uploadToServer"></UploadModal>
+    <div class="content has-text-centered">
+      <p>
+        Made with ❤️ by @lauragift21
+      </p>
+    </div>
   </div>
 </template>
 
@@ -103,5 +108,12 @@ export default {
 .navbar-item {
  height: 25px;
  width: auto;
+ margin-left: 20px;
+ text-decoration: none;
+}
+.content {
+  background: #111;
+  color: #fff;
+  padding: 4vh;
 }
 </style>
