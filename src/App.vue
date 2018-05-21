@@ -37,8 +37,9 @@
     </div>
     <UploadModal :showModal="showModal" @handle-upload="uploadToServer"></UploadModal>
     <div class="content has-text-centered">
-      <p>
-        Made with ❤️ by @lauragift21
+      <p class="has-text-white-bis is-size-8 is-italic">
+        Made with ❤️ by
+        <a href="https://twitter.com/lauragift21" target="_blank">@lauragift21 </a>
       </p>
     </div>
   </div>

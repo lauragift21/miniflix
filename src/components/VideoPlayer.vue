@@ -20,12 +20,12 @@ export default {
     this.player = this.cloudinaryInstance.videoPlayer('trailer', {
     transformation: {
             crop: 'crop',
-            width: 1200,
+            width: 1000,
             aspect_ratio: '16:9',
-            x: 100,
-            y: 100,
+            x: 90,
+            y: 90,
             gravity: 'center',
-            // overlay: 'l_MiniFlix',
+            overlay: 'Miniflix',
     }
     });
     this.player.source(
@@ -57,6 +57,6 @@ export default {
 .trailer-content {
   position: absolute;
   top: 30%;
-  left: 200px;
+  left: 100px;
 }
 </style>
